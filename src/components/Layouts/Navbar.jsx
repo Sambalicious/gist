@@ -3,7 +3,6 @@ import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core";
 import { ThemeSelector } from "../Utilities/ThemeSelector";
 import { Link } from "react-router-dom";
 import SignedOut from "../auth/SingnedOut/SignedOut";
-import MenuItems from './MenuItems';
 import SignedIn from "../auth/SignedIn/SignedIn";
 
 
@@ -14,6 +13,7 @@ const Header = (props) => {
   const handleToggle = () => setShow(!show);
 
   return (
+    
     <Flex
       as="nav"
       align="center"
@@ -21,6 +21,7 @@ const Header = (props) => {
       wrap="wrap"
       padding="1.5rem"
       color="blue.400"
+      boxShadow="lg"
       {...props}
     >
       <Flex align="center" mr={8}>
