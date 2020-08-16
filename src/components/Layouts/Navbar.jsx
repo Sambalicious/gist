@@ -3,12 +3,10 @@ import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core";
 import { ThemeSelector } from "../Utilities/ThemeSelector";
 import { Link } from "react-router-dom";
 import SignedOut from "../auth/SingnedOut/SignedOut";
+import MenuItems from './MenuItems';
+import SignedIn from "../auth/SignedIn/SignedIn";
 
-export const MenuItems = ({ children }) => (
-  <Text mt={{ base: 4, md: 0 }} mr={6} display="block">
-    {children}
-  </Text>
-);
+
 
 // Note: This code could be better, so I'd recommend you to understand how I solved and you could write yours better :)
 const Header = (props) => {
@@ -22,9 +20,10 @@ const Header = (props) => {
       justify="space-between"
       wrap="wrap"
       padding="1.5rem"
+      color="blue.400"
       {...props}
     >
-      <Flex align="center" mr={5}>
+      <Flex align="center" mr={8}>
         <Link to='/'>
           <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
             hasta-La Gista
@@ -50,21 +49,13 @@ const Header = (props) => {
         alignItems="center"
         flexGrow={1}
       >
-        <Link to="/login">
-          
-          <MenuItems>Login</MenuItems>
-        </Link>
-        <Link to="/register">
-          <MenuItems>Register</MenuItems>
-        </Link>
-        <Link to="/add-gist">
-          <MenuItems>Add Gist</MenuItems>
-        </Link>
-        <SignedOut/>
+        <SignedOut />
+        <SignedIn/>
        
-          <ThemeSelector />
-        
+        <ThemeSelector />
       </Box>
+      
+     
     </Flex>
   );
 };

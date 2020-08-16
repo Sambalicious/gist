@@ -49,7 +49,7 @@ const NewGist = () => {
               />
             </FormControl>
 
-            <Button type="submit" variantColor="blue" width="full" mt={4}>
+            <Button type="submit" variantColor="blue" width="full" mt={5}>
               Add Gist
             </Button>
           </form>
