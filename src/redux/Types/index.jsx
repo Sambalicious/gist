@@ -13,3 +13,6 @@ export const ADD_GIST_ERROR= "ADD_GIST_ERROR";
 export const ADD_GIST_SUCCESS= "ADD_GIST_SUCCESS";
 
 
+//SIGN OUT
+
+export const SIGN_OUT = "SIGN_OUT"

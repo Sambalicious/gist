@@ -1,10 +1,20 @@
 import React, {useState} from 'react'
-import { Box, FormControl, FormLabel, Input, Stack, Checkbox, Link, Button } from '@chakra-ui/core'
-import { Link as link } from 'react-router-dom';
-
+import { Box, FormControl, FormLabel, Input, Stack, Checkbox,useToast, Link, Button } from '@chakra-ui/core'
+import { Link as link, Redirect } from 'react-router-dom';
+import { useFirebase } from 'react-redux-firebase';
+import { useSelector, useDispatch } from 'react-redux';
+import { SignIn } from '../../redux/Actions/AuthActions';
 
 
 const LoginForm = () => {
+    const toast = useToast();
+    const dispatch = useDispatch();
+    const firebase = useFirebase();
+
+   
+const auth = useSelector(state => state.firebase.auth)
+
+    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
 
@@ -17,12 +27,18 @@ const LoginForm = () => {
         setPassword(e.target.value);
     }
 
+    const data = {
+        email, password
+    }
+
     const handleSubmit = (e) =>{
         e.preventDefault();
-
-        console.log(email, password);
+        dispatch(SignIn(data, firebase, toast));
+        
+        
     }
    
+    if(auth.uid) return <Redirect to="/" />
 
     return (
         <div>

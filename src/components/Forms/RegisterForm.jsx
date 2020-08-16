@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
-import { Box, FormControl, FormLabel, Input,Link, Flex, Button, Stack } from '@chakra-ui/core';
-import { Link as link } from 'react-router-dom';
-
+import { Box, FormControl, FormLabel, Input,Link,useToast, Flex, Button, Stack } from '@chakra-ui/core';
+import { Link as link, Redirect } from 'react-router-dom';
+import { useFirestore, useFirebase } from "react-redux-firebase";
+import { useDispatch, useSelector } from 'react-redux';
+import { SignUp } from '../../redux/Actions/AuthActions'
 
 
 const RegisterForm = () => {
+    const toast = useToast();
+    const firestore = useFirestore();
+    const firebase = useFirebase();
+    const dispatch = useDispatch();
 
     const [firstName, setFirstName] = useState('')
     const [lastName, setLastName] = useState('')
     const [password, setPassword] = useState('')
     const [email, setEmail] = useState('');
 
-
+    const auth =  useSelector(state=> state.firebase.auth)
 
 
     const handleFirstName = e =>{
@@ -27,10 +33,16 @@ const RegisterForm = () => {
         setEmail(e.target.value)
     }
 
+    const data ={ firstName, lastName, password, email}
+
     const handleSubmit = e=>{
         e.preventDefault();
         console.log(firstName, lastName, password, email)
+        dispatch(SignUp(firebase, firestore, data, toast));
     }
+
+    if(auth.uid) return <Redirect to="/" />
+    
     return (
         <Flex minHeight="90vh" width="full" align="center" justifyContent="center">
         <Box borderWidth={1}

@@ -1,5 +1,5 @@
 
-import { SIGN_IN_SUCCESS,SIGN_UP_ERROR, SIGN_UP_SUCCESS, SIGN_IN_ERROR } from '../Types';
+import { SIGN_IN_SUCCESS,SIGN_UP_ERROR, SIGN_UP_REQUEST, SIGN_IN_REQUEST, SIGN_UP_SUCCESS, SIGN_IN_ERROR, SIGN_OUT } from '../Types';
 
 
 const initialState = {
@@ -27,6 +27,10 @@ const AuthReducer = (state=initialState, action) => {
 
             case SIGN_UP_ERROR: return {
                 ...state, loading: false, error: action.payload
+            }
+
+            case SIGN_OUT: return {
+                ...state, loading:false
             }
             
             

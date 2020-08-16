@@ -4,11 +4,17 @@ import { ThemeSelector } from "../Utilities/ThemeSelector";
 import { Link } from "react-router-dom";
 import SignedOut from "../auth/SingnedOut/SignedOut";
 import SignedIn from "../auth/SignedIn/SignedIn";
-
+import { useSelector } from 'react-redux';
 
 
 // Note: This code could be better, so I'd recommend you to understand how I solved and you could write yours better :)
 const Header = (props) => {
+
+
+
+  const auth = useSelector(state => state.firebase.auth)
+    const profile = useSelector(state => state.firebase.profile);
+    const links = auth.uid ? <SignedIn profile={profile} /> : <SignedOut />
   const [show, setShow] = React.useState(false);
   const handleToggle = () => setShow(!show);
 
@@ -19,7 +25,7 @@ const Header = (props) => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1.5rem"
+      padding="1rem"
       color="blue.400"
       boxShadow="lg"
       {...props}
@@ -50,8 +56,7 @@ const Header = (props) => {
         alignItems="center"
         flexGrow={1}
       >
-        <SignedOut />
-        <SignedIn/>
+        {links}
        
         <ThemeSelector />
       </Box>
