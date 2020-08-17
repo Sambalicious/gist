@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Flex, Text, Button } from "@chakra-ui/core";
+import { Box, Heading, Flex} from "@chakra-ui/core";
 import { ThemeSelector } from "../Utilities/ThemeSelector";
 import { Link } from "react-router-dom";
 import SignedOut from "../auth/SingnedOut/SignedOut";
@@ -25,12 +25,12 @@ const Header = (props) => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="0.2rem"
+      padding="0.7rem"
       color="blue.400"
       boxShadow="lg"
       {...props}
     >
-      <Flex align="center" mr={8}>
+      <Flex align="center" m={8}>
         <Link to='/'>
           <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
             hasta-La Gista

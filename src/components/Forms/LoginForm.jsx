@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Box, FormControl, FormLabel, Input, Stack, Checkbox,useToast, Link, Button } from '@chakra-ui/core'
+import { Box, FormControl,Flex, FormLabel, Input, Stack, Checkbox,useToast, Link, Button } from '@chakra-ui/core'
 import { Link as link, Redirect } from 'react-router-dom';
 import { useFirebase } from 'react-redux-firebase';
 import { useSelector, useDispatch } from 'react-redux';
@@ -41,7 +41,15 @@ console.log(useSelector(state=>state.firebase))
     if(auth.uid) return <Redirect to="/" />
 
     return (
-        <div>
+        <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
+        <Box borderWidth={1}
+          p={4}
+          width="full"
+          maxWidth="500px"
+          borderRadius={4}
+          textAlign="center"
+          boxShadow="lg"
+        >
             <Box  textAlign="left">
             <form onSubmit={handleSubmit}>
                 <FormControl>
@@ -71,7 +79,9 @@ console.log(useSelector(state=>state.firebase))
                 </Stack>
             </form>
             </Box>
-        </div>
+            </Box>
+
+        </Flex>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuItems from "../../Layouts/MenuItems";
 import { Link } from "react-router-dom";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Avatar } from '@chakra-ui/core'
 import { useFirebase } from 'react-redux-firebase';
 import { SignOut } from '../../../redux/Actions/AuthActions' 
@@ -10,6 +10,8 @@ const SignedIn = () => {
 
     const firebase = useFirebase();
     const dispatch = useDispatch();
+    const profile = useSelector(state => state.firebase.profile);
+  
     return (
         <>
             <Link to="/add-gist">
@@ -21,7 +23,7 @@ const SignedIn = () => {
         </Link>
 
        
-         <Avatar name="Samuel Temitope" />
+         <Avatar bg="blue.400" name={`${profile.firstName} ${profile.lastName}`} />
          <MenuItems></MenuItems>
        
 
