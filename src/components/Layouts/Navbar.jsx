@@ -25,7 +25,7 @@ const Header = (props) => {
       align="center"
       justify="space-between"
       wrap="wrap"
-      padding="1rem"
+      padding="0.2rem"
       color="blue.400"
       boxShadow="lg"
       {...props}

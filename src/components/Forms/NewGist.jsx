@@ -1,7 +1,16 @@
 import React, {useState} from "react";
-import { Flex, Box, FormControl, FormLabel, Input, Button, Textarea  } from "@chakra-ui/core";
+import { Flex, Box, FormControl, FormLabel, Input,useToast, Button, Textarea  } from "@chakra-ui/core";
+import { AddGist } from "../../redux/Actions/GistsActions";
+import { useFirestore } from 'react-redux-firebase';
+import { useDispatch} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const NewGist = () => {
+  const firestore = useFirestore();
+  const dispatch = useDispatch();
+  const toast = useToast();
+  const history = useHistory();
+
     const [title, setTitle] = useState('');
     const [gist, setGist] = useState('');
 
@@ -16,10 +25,13 @@ const NewGist = () => {
 
     const handleSubmit = e =>{
         e.preventDefault();
-        console.log(title, gist)
+        const data = { gist, title}
+
+        dispatch(AddGist(data, firestore, toast));
+        history.push('/');
     }
   return (
-    <Flex minHeight="70vh" width="full" align="center" justifyContent="center">
+    <Flex minHeight="80vh" width="full" align="center" justifyContent="center">
       <Box
         borderWidth={1}
         p={4}

@@ -17,11 +17,10 @@ const SignIn = () => {
         boxShadow="lg"
       >
        
-            <Box p={4}>
+           
                     <LoginForm />
                    
-              
-            </Box>
+             
       </Box>
     </Flex>
   );

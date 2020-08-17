@@ -6,14 +6,14 @@ import {
   ColorModeProvider,
   CSSReset,
   Spinner,
-  Flex
+  Flex,
 } from "@chakra-ui/core";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { ReactReduxFirebaseProvider, isLoaded } from "react-redux-firebase";
-import { store } from './redux/Store/store';
-import firebase from "./redux/config/Firebase"
+import { store } from "./redux/Store/store";
+import firebase from "./redux/config/Firebase";
 import { createFirestoreInstance } from "redux-firestore";
 import { Provider, useSelector } from "react-redux";
 
@@ -31,21 +31,19 @@ const rrfProps = {
 
 const AuthIsLoaded = ({ children }) => {
   const auth = useSelector((state) => state.firebase.auth);
-  if (!isLoaded(auth)) return <Flex
-  justify="center"
-  align="center"
-  minHeight="100vh"
-
- >
-    
-    <Spinner
-  thickness="4px"
-  speed="0.65s"
-  alignContent="center"
-  emptyColor="gray.200"
-  color="blue.500"
-  size="xl"
-/></Flex>;
+  if (!isLoaded(auth))
+    return (
+      <Flex justify="center" align="center" minHeight="100vh">
+        <Spinner
+          thickness="4px"
+          speed="0.65s"
+          alignContent="center"
+          emptyColor="gray.200"
+          color="blue.500"
+          size="xl"
+        />
+      </Flex>
+    );
   return children;
 };
 

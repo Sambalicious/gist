@@ -13,7 +13,7 @@ const LoginForm = () => {
 
    
 const auth = useSelector(state => state.firebase.auth)
-
+console.log(useSelector(state=>state.firebase))
     
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('')
