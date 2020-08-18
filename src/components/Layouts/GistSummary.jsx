@@ -13,7 +13,7 @@ const GistSummary = ({gist}) => {
                 </Stack>
                 
             </Stack>
-            <Heading as="h6" size="md" my={3} mx={"auto"}> This is just for testing</Heading>
+            <Heading textAlign="center" as="h6" size="md" my={4} mx={"auto"}>{gist.title} </Heading>
         </Box>
     )
 }

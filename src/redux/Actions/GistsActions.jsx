@@ -18,8 +18,8 @@ export const AddGist = (data, firestore, toast) =>{
             authorLastname: profile.lastName,
             createdAt: new Date(),
             authorId
-        }).then(()=>{
-            dispatch({type: ADD_GIST_SUCCESS})
+        }).then((response)=>{
+            dispatch({type: ADD_GIST_SUCCESS, payload:response})
             toast({
                 title: "Hurray, You added a new gist",
                 description: "Your gist has been added",

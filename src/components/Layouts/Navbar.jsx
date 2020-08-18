@@ -38,7 +38,7 @@ const Header = (props) => {
         </Link>
       </Flex>
 
-      <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
+      <Box display={{ base: "block", md: "none" }} mr={3} onClick={handleToggle}>
         <svg
           fill="teal"
           width="12px"
@@ -55,6 +55,7 @@ const Header = (props) => {
         width={{ sm: "full", md: "auto" }}
         alignItems="center"
         flexGrow={1}
+        mx={3}
       >
         {links}
        

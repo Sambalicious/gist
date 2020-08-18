@@ -7,7 +7,7 @@ import Home from './components/Layouts/Home';
 import NotFound from './components/Utilities/Others/NotFoundPage'
 import GistDetails from './components/Layouts/GistDetails';
 import LoginForm from './components/Forms/LoginForm';
-
+import PrivateRoute from './components/Utilities/Others/PrivateRoute'
 
 
 
@@ -19,9 +19,9 @@ function App() {
       <Switch>
         <Route exact  path="/login" component={LoginForm} />
         <Route exact  path="/register" component={RegisterForm} />
-        <Route exact path="/gist/:id" component={GistDetails}/>
-        <Route exact  path="/add-gist" component={NewGist} />
-        <Route exact path="/" component={Home} />
+        <PrivateRoute exact path="/gist/:id" component={GistDetails}/>
+        <PrivateRoute exact  path="/add-gist" component={NewGist} />
+        <PrivateRoute exact path="/" component={Home} />
         <Route path="*" component={NotFound} />
       </Switch>
     </Router>
