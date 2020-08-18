@@ -17,6 +17,7 @@ import firebase from "./redux/config/Firebase";
 import { createFirestoreInstance } from "redux-firestore";
 import { Provider, useSelector } from "react-redux";
 
+
 const rrfConfig = {
   userProfile: "users",
   useFirestoreForProfile: true,

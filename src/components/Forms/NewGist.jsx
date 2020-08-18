@@ -1,9 +1,18 @@
-import React, {useState} from "react";
-import { Flex, Box, FormControl, FormLabel, Input,useToast, Button, Textarea  } from "@chakra-ui/core";
+import React, { useState } from "react";
+import {
+  Flex,
+  Box,
+  FormControl,
+  FormLabel,
+  Input,
+  useToast,
+  Button,
+  Textarea,
+} from "@chakra-ui/core";
 import { AddGist } from "../../redux/Actions/GistsActions";
-import { useFirestore } from 'react-redux-firebase';
-import { useDispatch} from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useFirestore } from "react-redux-firebase";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const NewGist = () => {
   const firestore = useFirestore();
@@ -11,25 +20,23 @@ const NewGist = () => {
   const toast = useToast();
   const history = useHistory();
 
-    const [title, setTitle] = useState('');
-    const [gist, setGist] = useState('');
+  const [title, setTitle] = useState("");
+  const [gist, setGist] = useState("");
 
+  const handleTitle = (e) => {
+    setTitle(e.target.value);
+  };
+  const handleGist = (e) => {
+    setGist(e.target.value);
+  };
 
-    const handleTitle = e => {
-        setTitle(e.target.value);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = { gist, title };
 
-    }
-    const handleGist = e => {
-        setGist(e.target.value)    
-    }
-
-    const handleSubmit = e =>{
-        e.preventDefault();
-        const data = { gist, title}
-
-        dispatch(AddGist(data, firestore, toast));
-        history.push('/');
-    }
+    dispatch(AddGist(data, firestore, toast));
+    history.push("/");
+  };
   return (
     <Flex minHeight="80vh" width="full" align="center" justifyContent="center">
       <Box
@@ -45,16 +52,17 @@ const NewGist = () => {
           <form onSubmit={handleSubmit}>
             <FormControl mt={4}>
               <FormLabel>Title</FormLabel>
-              <Input type="text"
+              <Input
+                type="text"
                 value={title}
                 onChange={handleTitle}
-               placeholder="Give Your gist a title" />
+                placeholder="Give Your gist a title"
+              />
             </FormControl>
 
             <FormControl mt={4}>
               <FormLabel>Content</FormLabel>
-              <Textarea 
-                
+              <Textarea
                 value={gist}
                 onChange={handleGist}
                 placeholder="Enter the content of your gist here"

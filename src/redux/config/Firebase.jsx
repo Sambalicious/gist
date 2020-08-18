@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import "firebase/performance";
 
 
 
@@ -18,6 +19,8 @@ const firebaseConfig = {
    // Initialize Firebase
    firebase.initializeApp(firebaseConfig);
    firebase.firestore();
+   // Initialize Performance Monitoring and get a reference to the service
+const perf = firebase.performance();
  
  
  

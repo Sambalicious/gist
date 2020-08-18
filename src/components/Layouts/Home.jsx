@@ -9,7 +9,7 @@ const Home = () => {
   useFirestoreConnect([{collection:"gists", orderBy: ["createdAt", 'desc']}]);
    
   const gists = useSelector((state) => state.firestore.ordered.gists);
-  ;
+  
   return (
     <SimpleGrid mt={4} columns={{sm:1, md: 3}} spacing="2rem">
       {gists &&
