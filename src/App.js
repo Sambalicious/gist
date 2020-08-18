@@ -8,6 +8,7 @@ import NotFound from './components/Utilities/Others/NotFoundPage'
 import GistDetails from './components/Layouts/GistDetails';
 import LoginForm from './components/Forms/LoginForm';
 import PrivateRoute from './components/Utilities/Others/PrivateRoute'
+import Notifications from './components/Layouts/Notifications';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route exact  path="/register" component={RegisterForm} />
         <PrivateRoute exact path="/gist/:id" component={GistDetails}/>
         <PrivateRoute exact  path="/add-gist" component={NewGist} />
+        <PrivateRoute exact  path="/notifications" component={Notifications} />
         <PrivateRoute exact path="/" component={Home} />
         <Route path="*" component={NotFound} />
       </Switch>
