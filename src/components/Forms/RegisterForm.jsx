@@ -44,7 +44,7 @@ const RegisterForm = () => {
     if(auth.uid) return <Redirect to="/" />
     
     return (
-        <Flex minHeight="90vh" width="full" align="center" justifyContent="center">
+        <Flex minHeight="80vh" width="full" align="center" justifyContent="center">
         <Box borderWidth={1}
           p={2}
           width="full"

@@ -41,7 +41,7 @@ console.log(useSelector(state=>state.firebase))
     if(auth.uid) return <Redirect to="/" />
 
     return (
-        <Flex minHeight="100vh" width="full" align="center" justifyContent="center">
+        <Flex minHeight="80vh" width="full" align="center" justifyContent="center">
         <Box borderWidth={1}
           p={4}
           width="full"
@@ -50,7 +50,7 @@ console.log(useSelector(state=>state.firebase))
           textAlign="center"
           boxShadow="lg"
         >
-            <Box  textAlign="left">
+            <Box p={4}  textAlign="left">
             <form onSubmit={handleSubmit}>
                 <FormControl>
                     <FormLabel >Email address</FormLabel>

@@ -8,7 +8,7 @@ const GistSummary = ({gist}) => {
             <Stack align="center" isInline>
                 <Avatar  name={`${gist.authorFirstname} ${gist.authorLastname}`}/>
                 <Stack ml={4}>
-                <Text>{gist.authorFirstname} {gist.authorLastname}</Text>
+                <Text autoCapitalize="true" >{gist.authorFirstname} {gist.authorLastname}</Text>
                 <Text fontSize="xs" color="gray.500">{moment(gist.createdAt.toDate()).calendar()} </Text>
                 </Stack>
                 

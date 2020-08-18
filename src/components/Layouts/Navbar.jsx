@@ -33,7 +33,7 @@ const Header = (props) => {
       <Flex align="center" m={8}>
         <Link to='/'>
           <Heading as="h1" size="lg" letterSpacing={"-.1rem"}>
-            hasta-La Gista
+            Hasta-La Gista
           </Heading>
         </Link>
       </Flex>
@@ -55,6 +55,7 @@ const Header = (props) => {
         width={{ sm: "full", md: "auto" }}
         alignItems="center"
         flexGrow={1}
+        flexDirection="flex-end"
         mx={3}
       >
         {links}

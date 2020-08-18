@@ -22,9 +22,9 @@ const SignedIn = () => {
           <MenuItems>Notifications</MenuItems>
         </Link>
 
-       
-         <Avatar bg="blue.400" name={`${profile.firstName} ${profile.lastName}`} />
-         <MenuItems></MenuItems>
+        
+         <Avatar mx={4} my={2} bg="blue.400" name={`${profile.firstName} ${profile.lastName}`} />
+         
        
 
         <a href="/" onClick={()=>dispatch(SignOut(firebase))}>

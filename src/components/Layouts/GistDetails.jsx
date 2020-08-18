@@ -23,12 +23,12 @@ const GistDetails = (props) => {
             <Box padding="2rem" mx={{base: 2, md:8}} boxShadow="lg">  
                 <Box>
                  <Heading my={3} color="blue.400" textAlign="center" as="h5" size="md">{gist.title} </Heading> 
-                 <Text justify="center">{gist.gist} </Text>
+                 <Text my={3} justify="center">{gist.gist} </Text>
                 </Box>  
                 <Divider my={4} />
-                <Box color='blue.300'>
-                    <Text>Posted by {gist.authorFirstname} {gist.authorLastname} </Text>
-                    <Text>{moment(gist.createdAt.toDate()).calendar()}</Text>
+                <Box >
+                    <Text color="blue.300">Posted by {gist.authorFirstname} {gist.authorLastname} </Text>
+                    <Text color='tomato'>{moment(gist.createdAt.toDate()).calendar()}</Text>
                 </Box>
             </Box>
         </Flex>
